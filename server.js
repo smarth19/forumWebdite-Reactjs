@@ -68,11 +68,6 @@ app.get('/authenticate-user', authenticateUser, (req, res) => {
     })
 })
 
-// Making a Route on '/'
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
-
 // SignUp Route
 app.post('/user/signup', async (req, res) => {
     try {
