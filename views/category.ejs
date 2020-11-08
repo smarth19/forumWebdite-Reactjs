@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <style>
+        body {
+            font-family: monospace;
+        }
+
+        button {
+            background: #d7d2ff;
+            border: 1px solid;
+            font-weight: 100;
+            font-family: sans-serif;
+            border-radius: 4px;
+            font-size: 18px;
+            padding: 5px;
+            cursor: pointer;
+            outline: none;
+            transition: .1s;
+        }
+
+        button:hover {
+            background-color: black;
+            color: white;
+            border: 1px solid black;
+        }
+
+        .addCategoryName {
+            width: 85%;
+            margin: 100px auto;
+            text-align: center;
+            height: 344px;
+        }
+
+        .addCategoryName>.specifyOther>button {
+            margin: 0 5px;
+        }
+
+        .addCategoryName>form {
+            width: 50%;
+            font-size: 10px;
+            margin: 0 auto;
+        }
+
+        .subCatNames {
+            margin: 20px 0;
+        }
+
+        .subCatNames>div {
+            font-size: 20px;
+            margin: 8px auto;
+            width: 55%;
+            text-align: initial;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 5px;
+            align-items: center;
+        }
+
+        .inputContainer>input {
+            margin: 5px 0;
+            outline: none;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            background-color: #ddd;
+            font-size: 22px;
+            font-family: "Poppins", sans-serif;
+            padding: 3px;
+        }
+
+        .inputContainer>input:focus {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='addCategoryName'>
+        <h1 style="text-decoration: underline;">Add New Category</h1>
+        <form action="/server-add-category" , method="POST">
+            <div class="inputContainer">
+                <input type="text" name="category" placeholder='Write Category Name' />
+            </div>
+            <button class="badge actionBtn">Add</button>
+        </form>
+
+        <div class="subCatNames">
+            <h1 style="text-decoration: underline;">Categories</h1>
+            <% if(categories.length !== 0){ %>
+            <% categories.forEach((category, index) => { %>
+            <div><%= index + 1  %>. <%= category.categoryName %> | Questions:-
+                <%= questions.filter(e => e.categoryId == category._id).length %> <form
+                    action="/server-add-category/delete" method="post"> <input type="hidden" name="catId"
+                        value="<%= category._id %>"> <button type="submit">Delete</button> </form>
+            </div>
+            <% }) %>
+            <% }  else{ %>
+            <h3>No Categories Yet</h3>
+            <% } %>
+
+        </div>
+    </div>
+</body>
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
+
+</html>
