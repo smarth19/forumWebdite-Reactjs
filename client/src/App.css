@@ -1128,7 +1128,8 @@ html {
     position: fixed;
     background: #fff;
     width: 100vw;
-    height: 10vh;
+    height: auto;
+    padding: 10px;
     left: 0;
     justify-content: center;
     bottom: 0;
