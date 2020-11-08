@@ -55,10 +55,10 @@ const authenticateUser = (req, res, next) => {
 }
 
 // setting view engine as ejs
-app.set('view engine', 'ejs')
+// app.set('view engine', 'ejs')
 
 // using a router on path = /server-add-category
-app.use('/server-add-category', require('./categoryRouter'))
+// app.use('/server-add-category', require('./categoryRouter'))
 
 // Authenticating user
 app.get('/authenticate-user', authenticateUser, (req, res) => {
