@@ -19,8 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()) //Important in order to receive body data from frontEnd
 app.use(cookieParser()) // Important in order to parse incoming cookie from front-end
 
+//{origin: 'http://localhost:3000', credentials: true}
 //Using cors middleware
-app.use(cors({origin: 'http://localhost:3000', credentials: true})) //1. origin is set to the front-end domain name. 2. Set credentials to true in order to receive httpOnly cookies(its actual meaning or functioning is different but in my case these are cookies) from frontend(react)
+app.use(cors()) //1. origin is set to the front-end domain name. 2. Set credentials to true in order to receive httpOnly cookies(its actual meaning or functioning is different but in my case these are cookies) from frontend(react)
 
 // Connecting Mongoose
 mongoose.connect('mongodb+srv://MERN_PROJECT_ONE:admin@cluster0.4zwqw.mongodb.net/Mern_Auth?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
