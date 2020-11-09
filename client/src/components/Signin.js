@@ -55,7 +55,7 @@ export default class Signin extends Component {
                         </div>
                         <div>
                             <label htmlFor='password'>Password: </label>
-                            <input type='text' id='password' onChange={this.handleChange} name='password' placeholder='Enter Your Password' />
+                            <input type='password' id='password' onChange={this.handleChange} name='password' placeholder='Enter Your Password' />
                         </div>
                         <button type='submit' className={`btn formBtn ${this.state.loading ? 'disableBtn' : ''}`} >{this.state.loading ? <LoadingSpinner /> : 'Sign In'}</button>
                     </form>

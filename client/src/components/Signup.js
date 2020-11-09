@@ -71,14 +71,13 @@ export default class Signup extends Component {
                         </div>
                         <div>
                             <label htmlFor='password'>Password: </label>
-                            <input type='text' id='password' minLength='5' onChange={this.handleChange} name='password' placeholder='Your Password' />
+                            <input type='password' id='password' minLength='5' onChange={this.handleChange} name='password' placeholder='Your Password' />
                         </div>
                         <div>
                             <label htmlFor='confirmPassword'>Confirm Password: </label>
-                            <input type='text' id='confirmPassword' onChange={this.handleChange} name='confirmPassword' placeholder='Confirm Your Password' />
+                            <input type='password' id='confirmPassword' onChange={this.handleChange} name='confirmPassword' placeholder='Confirm Your Password' />
                         </div>
                         <button type='submit' className={`btn formBtn ${this.state.loading ? 'disableBtn' : ''}`} >{this.state.loading ? <LoadingSpinner /> : 'Sign Up'}</button>
-                        {/* <input type='submit' className='btn' value='Sign Up' /> */}
                     </form>
                     <div className="signIn">
                         Already Have An Account? <button className='btn'><Link to='/user/signin'>Sign In</Link></button>
